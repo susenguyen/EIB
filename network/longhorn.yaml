@@ -1,0 +1,24 @@
+routes:
+  config:
+  - destination: 0.0.0.0/0
+    metric: 100
+    next-hop-address: 10.0.254.1
+    next-hop-interface: eth0
+    table-id: 254
+dns-resolver:
+  config:
+    server:
+    - 10.0.254.1
+interfaces:
+- name: eth0
+  type: ethernet
+  state: up
+  mac-address: 00:00:00:00:00:11
+  ipv4:
+    address:
+    - ip: 10.0.254.13
+      prefix-length: 24
+    dhcp: false
+    enabled: true
+  ipv6:
+    enabled: false

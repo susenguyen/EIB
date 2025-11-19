@@ -1,0 +1,21 @@
+longhornUI:
+  replicas: 1
+
+persistence:
+  defaultFsType: ext4
+  defaultClassReplicaCount: 1
+
+csi:
+  attacherReplicaCount: 1
+  provisionerReplicaCount: 1
+  resizerReplicaCount: 1
+  snapshotterReplicaCount: 1
+
+defaultSettings:
+  #defaultLonghornStaticStorageClass: longhorn-static
+  upgradeChecker: false
+  # Use the NetworkAttachmentDefinition
+  #storageNetwork: longhorn/br2
+  defaultReplicaCount: 1
+  nodeDownPodDeletionPolicy: do-nothing
+  orphanAutoDeletion: false
