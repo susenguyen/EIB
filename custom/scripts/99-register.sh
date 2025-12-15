@@ -37,4 +37,4 @@ exec > >(exec tee -a /dev/tty0) 2>&1
 
 add_steph
 profile_config
-#register
+register

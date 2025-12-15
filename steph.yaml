@@ -2,13 +2,9 @@ apiVersion: 1.0
 image:
   arch: x86_64
   imageType: iso
-# baseImage: SL-Micro.x86_64-6.1.install.iso
   baseImage: SL-Micro.x86_64-6.1.NMS-20250926.install.iso
   outputImageName: steph-image.iso
 operatingSystem:
-# Testing disk selection by-path
-# isoConfiguration:
-#   installDevice: /dev/disk/by-path/pci-0000\:00\:01.1-ata-1.1
   users:
     - username: root
       encryptedPassword: $6$TKaIjQHH.zHNs3fm$wwX9IHZ7GRY4kL0z7sDUJQm4gYIvkZk32epRTNCkDfrXjmKVLzQN47fUjGxbpGjEQwUrohiN/lp7NhJEJwW470
@@ -22,7 +18,7 @@ operatingSystem:
     additionalRepos:
       - url: http://geeko2.suse.lab/repo/SUSE/Products/SL-Micro/6.1/x86_64/product/
 kubernetes:
-  version: v1.33.5+k3s1
+  version: v1.33.5+rke2r1
   nodes:
     - hostname: longhorn
       type: server
