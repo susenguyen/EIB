@@ -26,6 +26,26 @@ profile_config() {
 EOF
 }
 
+add_sdb() {
+	set -x
+
+	# Find Disk
+	# - Assumes driver is sd*
+	# - Takes the first disk which size is > 110 GiB
+	for disk in /dev/sd*
+	do
+		DISK=$(fdisk -l $disk | awk ' /^Disk \/dev\// && $3 > 110 { print $2 } ' | sed 's/://')
+		[[ -n "${DISK}" ]] && break
+	done
+
+	# Now, format and extract UUID
+	UUID=$(mkfs.ext4 ${DISK} 2>/dev/null | awk '/UUID/ { print $3 }')
+
+	mount /var
+	mkdir -p /var/lib/longhorn
+	echo "UUID=${UUID} /var/lib/longhorn ext4 defaults 0 0" >> /etc/fstab
+}
+
 register() {
 	# Custom CA cert imported as part of the kiwi build
 	SUSEConnect --url https://geeko2.suse.lab
