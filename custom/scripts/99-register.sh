@@ -14,16 +14,16 @@ add_steph() {
 
 	chown -R steph:users /home/steph
 
-	cat > /etc/sudoers.d/steph <<EOF
+	cat > /etc/sudoers.d/steph <<- EOF
 	steph ALL=(ALL) NOPASSWD:ALL
-EOF
+	EOF
 }
 
 profile_config() {
-	cat >/root/.profile <<EOF
+	cat >/root/.profile <<- EOF
 	set -o vi
 	alias ll='ls -l'
-EOF
+	EOF
 }
 
 add_sdb() {
