@@ -10,3 +10,11 @@ spec:
     providers:
       kubernetesGateway:
         enabled: true
+    ports:
+      web:
+        port: 80
+    gateway:
+      listeners:
+        web:
+          port: 80
+
