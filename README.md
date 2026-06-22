@@ -12,5 +12,5 @@ Sample Single RKE2 Longhorn Server Build
 - From the directory containing steph.yaml
 ```
 CONFIG_DIR=.
-sudo podman run --rm -it --privileged -v $CONFIG_DIR:/eib registry.suse.com/edge/3.4/edge-image-builder:1.3.1 build --definition-file steph.yaml
+sudo podman run --rm -it --privileged -v ${CONFIG_DIR:-.}:/eib registry.suse.com/edge/3.5/edge-image-builder:1.3.3 build --definition-file steph.yaml
 ```
