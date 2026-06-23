@@ -2,7 +2,7 @@ apiVersion: 1.0
 image:
   arch: x86_64
   imageType: iso
-  baseImage: SL-Micro.x86_64-6.1.NMS-20250926.install.iso
+  baseImage: SL-Micro.x86_64-6.2.NMS-20260623.install.iso
   outputImageName: steph-image.iso
 operatingSystem:
   users:
@@ -18,7 +18,7 @@ operatingSystem:
     additionalRepos:
       - url: http://geeko2.suse.lab/repo/SUSE/Products/SL-Micro/6.1/x86_64/product/
 kubernetes:
-  version: v1.33.5+rke2r1
+  version: v1.34.8+rke2r1
   nodes:
     - hostname: longhorn
       type: server
